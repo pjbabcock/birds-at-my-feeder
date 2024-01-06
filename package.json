@@ -1,0 +1,12 @@
+{
+  "name": "birds-at-my-feeder",
+  "version": "1.0.0",
+  "description": "a site to track which birds visit my feeder during each month",
+  "main": "index.js",
+  "scripts": {
+    "start_dev": "http-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
