@@ -4,6 +4,7 @@
   "description": "a site to track which birds visit my feeder during each month",
   "main": "index.js",
   "scripts": {
+    "restore_workspace": "npm install",
     "start_dev": "http-server"
   },
   "keywords": [],
