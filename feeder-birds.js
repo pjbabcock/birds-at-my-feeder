@@ -1,4 +1,4 @@
-Function addObservation() {
+function addObservation() {
   //get table
   let table = document.getElementById("observation-table");
 
@@ -21,5 +21,5 @@ Function addObservation() {
 
   //fill cells
   c1.innertext = document.getElementById("species-name-input").value
-  
+
 }
