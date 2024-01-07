@@ -15,3 +15,7 @@ table {
 .months {
   width: 50px;
 }
+
+.present {
+  background-color: green;
+}
