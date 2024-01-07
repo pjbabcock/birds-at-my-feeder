@@ -3,11 +3,12 @@
 <head>
   <title>Birds at My Feeder</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="feeder-birds.js"> </script>
 </head>
 
 <body>
   <h1>Birds at My Feeder</h1>
-  <table class="observation-table">
+  <table id="observation-table" class="observation-table">
     <colgroup>
       <col span="1" class="species-name">
       <col span="12" class="months">
@@ -44,7 +45,7 @@
     </tr>
   </table>
   <form>
-    <input type="text">
+    <input id="species-name-input" type="text">
     <input type="checkbox" id ="month1" name="month1" value="jan">
     <label for="month1">Jan</label>
     <input type="checkbox" id ="month2" name="month2" value="feb">
