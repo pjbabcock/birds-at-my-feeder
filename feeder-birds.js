@@ -21,7 +21,7 @@ function addObservation() {
   let c13 = row.insertCell(12);
 
   //fill cells
-  c1.innertext = document.getElementById("species-name-input").value;
+  c1.innerHTML = document.getElementById("species-name-input").value;
 
   //test
   console.log("test")
