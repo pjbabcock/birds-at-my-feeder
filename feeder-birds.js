@@ -22,4 +22,7 @@ function addObservation() {
   //fill cells
   c1.innertext = document.getElementById("species-name-input").value;
 
+  //test
+  console.log("test")
+
 }
