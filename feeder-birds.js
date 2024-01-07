@@ -3,7 +3,7 @@ function addObservation() {
   let table = document.getElementById("observation-table");
 
   //create row
-  let row = table.insertRow(0);
+  let row = table.insertRow(-1);
 
   //create cells
   let c1 = row.insertCell(0);
