@@ -18,6 +18,7 @@ function addObservation() {
   let c10 = row.insertCell(9);
   let c11 = row.insertCell(10);
   let c12 = row.insertCell(11);
+  let c13 = row.insertCell(12);
 
   //fill cells
   c1.innertext = document.getElementById("species-name-input").value;
