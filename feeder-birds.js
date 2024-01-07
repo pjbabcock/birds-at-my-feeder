@@ -3,7 +3,7 @@ function addObservation() {
   let table = document.getElementById("observation-table");
 
   //create row
-  let row = table.insertRow(-1);
+  let row = table.insertRow(0);
 
   //create cells
   let c1 = row.insertCell(0);
@@ -20,6 +20,6 @@ function addObservation() {
   let c12 = row.insertCell(11);
 
   //fill cells
-  c1.innertext = document.getElementById("species-name-input").value
+  c1.innertext = document.getElementById("species-name-input").value;
 
 }
