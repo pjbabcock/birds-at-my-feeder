@@ -44,8 +44,8 @@
       <td class="dec"></td>
     </tr>
   </table>
+  <textarea name="species-name-input" id="species-name-input" rows="1" cols="30"></textarea>
   <form method="post">
-    <input id="species-name-input" type="text">
     <input type="checkbox" id ="month1" name="month1" value="jan">
     <label for="month1">Jan</label>
     <input type="checkbox" id ="month2" name="month2" value="feb">
@@ -70,7 +70,7 @@
     <label for="month11">Nov</label>
     <input type="checkbox" id ="month12" name="month12" value="dec">
     <label for="month12">Dec</label>
-    <input type="submit" value="Add" onclick="addObservation()">
   </form>
+  <button type="button" onclick="addObservation()">Add</button>
 </body>
 </html>
