@@ -4,17 +4,17 @@ function addObservation() {
 
   //get checkbox data
   const month1 = document.getElementById("month1").value;
-  const month2 = document.getElementById9("month2").value;
+  const month2 = document.getElementById("month2").value;
   const month3 = document.getElementById("month3").value;
-  const month4 = document.getElementById9("month4").value;
+  const month4 = document.getElementById("month4").value;
   const month5 = document.getElementById("month5").value;
-  const month6 = document.getElementById9("month6").value;
+  const month6 = document.getElementById("month6").value;
   const month7 = document.getElementById("month7").value;
-  const month8 = document.getElementById9("month8").value;
+  const month8 = document.getElementById("month8").value;
   const month9 = document.getElementById("month9").value;
-  const month10 = document.getElementById9("month10").value;
+  const month10 = document.getElementById("month10").value;
   const month11 = document.getElementById("month11").value;
-  const month12 = document.getElementById9("month12").value;
+  const month12 = document.getElementById("month12").value;
 
   //create row
   let row = table.insertRow(-1);
@@ -38,8 +38,8 @@ function addObservation() {
   c1.innerHTML = document.getElementById("species-name-input").value;
   
   //fill months
-  if (month1 === jan) {
-    c1.classList.add("present")
+  if (month1 === "jan") {
+    c2.classList.add("present")
   }
 
 }
