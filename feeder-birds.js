@@ -47,7 +47,7 @@ function addObservation() {
   
     for (let j = 0; j < 12; j++) {
       newCells[j].classList.add("month-cell")
-      if (document.getElementById(`month${j+1}`).checked) {
+      if (document.getElementById(`month${j+1}`).classList.contains("present")) {
         newCells[j].classList.add("present");
       }
     }
@@ -70,7 +70,7 @@ function addObservation() {
 
     //fill new months
     for (let j = 0; j < 12; j++) {
-      if (document.getElementById(`month${j+1}`).checked) {
+      if (document.getElementById(`month${j+1}`).classList.contains("present")) {
         table.rows[i+1].cells[j+1].classList.add("present");
       }
     }
