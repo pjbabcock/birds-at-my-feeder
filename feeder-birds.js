@@ -12,6 +12,7 @@ function addObservation() {
   while (i < previousSpecies.length) {
     if (previousSpecies[i].innerHTML === speciesNameInput) {
       speciesCheck = true;
+      break;
     }
     i++;
   }
@@ -50,5 +51,14 @@ function addObservation() {
       }
     }
 
+  }
+
+  //if repeat species:
+  else {
+    for (let k = 0; k < 12; k++) {
+      if (document.getElementById(`month${k+1}`).checked) {
+        table.rows[i].cells[k+1].classList.add("present");
+      }
+    }
   }
 }
