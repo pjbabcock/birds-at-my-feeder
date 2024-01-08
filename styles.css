@@ -24,6 +24,10 @@ table {
   margin-left: auto;
 }
 
+#all-year-label {
+  font-weight: bold;
+}
+
 .present {
   background-color: green;
 }
