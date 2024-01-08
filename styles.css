@@ -18,6 +18,10 @@ table {
   width: 45px;
 }
 
+.new-observation-submission {
+  width: 70%;
+}
+
 .present {
   background-color: green;
 }
