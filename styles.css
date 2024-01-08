@@ -9,7 +9,7 @@ table, th, td {
 table {
   table-layout: auto;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
 }
 
 .months {
