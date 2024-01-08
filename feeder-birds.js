@@ -49,6 +49,22 @@ function addObservation() {
       if (document.getElementById(`month${j+1}`).checked) {
         newCells[j].classList.add("present");
       }
+      else {
+        newCells[j].classList.add("not-present");
+      }
+    }
+    
+
+    //add on-click behavior to cells
+    for (let j = 0; j <12; j++) {
+      newCells[j].onclick = function() {
+        if (this.classList.contains("present")) {
+          this.classList.remove("present");
+        }
+        else {
+          this.classList.add("present");
+        }
+      }
     }
 
   }
@@ -57,26 +73,27 @@ function addObservation() {
   else {
 
     //fill new months
-    for (let k = 0; k < 12; k++) {
-      if (document.getElementById(`month${k+1}`).checked) {
-        table.rows[i+1].cells[k+1].classList.add("present");
+    for (let j = 0; j < 12; j++) {
+      if (document.getElementById(`month${j+1}`).checked) {
+        table.rows[i+1].cells[j+1].classList.add("present");
       }
     }
   }
 }
 
+//"All-year" checkbox behavior:
 function checkAll() {
   //check all boxes
   if (document.getElementById("all-year").checked) {
-    for (let l = 0; l < 12; l++) {
-      document.getElementById(`month${l+1}`).checked = true;
+    for (let j = 0; j < 12; j++) {
+      document.getElementById(`month${j+1}`).checked = true;
     }
   }
 
   //uncheck all boxes
   else {
-    for (let l = 0; l < 12; l++) {
-      document.getElementById(`month${l+1}`).checked = false;
+    for (let j = 0; j < 12; j++) {
+      document.getElementById(`month${j+1}`).checked = false;
     }
   }
 }
