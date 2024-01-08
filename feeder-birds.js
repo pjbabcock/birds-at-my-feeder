@@ -55,12 +55,28 @@ function addObservation() {
 
   //if repeat species:
   else {
-    
+
     //fill new months
     for (let k = 0; k < 12; k++) {
       if (document.getElementById(`month${k+1}`).checked) {
         table.rows[i+1].cells[k+1].classList.add("present");
       }
+    }
+  }
+}
+
+function checkAll() {
+  //check all boxes
+  if (document.getElementById("all-year").checked) {
+    for (let l = 0; l < 12; l++) {
+      document.getElementById(`month${l+1}`).check = true;
+    }
+  }
+
+  //uncheck all boxes
+  else {
+    for (let l = 0; l < 12; l++) {
+      document.getElementById(`month${l+1}`).check = false;
     }
   }
 }
