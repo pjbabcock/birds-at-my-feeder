@@ -93,3 +93,14 @@ function checkAll() {
     }
   }
 }
+
+//Toggle month cells in input row
+function togglePresent(boxId) {
+  if (boxId.classList.contains("present")) {
+    boxId.classList.remove("present");
+  }
+  else {
+    boxId.classList.add("present");
+  }
+}
+  
