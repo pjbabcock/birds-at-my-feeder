@@ -42,10 +42,11 @@ function addObservation() {
     c0.innerHTML = speciesNameInput;
     c0.classList.add("species-name");
   
-    //fill months
+    //style new month cells
     let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
   
     for (let j = 0; j < 12; j++) {
+      newCells[j].classList.add("month-cell")
       if (document.getElementById(`month${j+1}`).checked) {
         newCells[j].classList.add("present");
       }

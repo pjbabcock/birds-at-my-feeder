@@ -14,11 +14,11 @@ table {
   margin-left: auto
 }
 
-td {
+.month-cell {
   transition-duration: 0.1s
 }
 
-td:hover {
+.month-cell:hover {
   border: 2px solid;
   transition-duration: 0.1s
 }
