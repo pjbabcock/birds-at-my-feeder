@@ -69,14 +69,14 @@ function checkAll() {
   //check all boxes
   if (document.getElementById("all-year").checked) {
     for (let l = 0; l < 12; l++) {
-      document.getElementById("month1").check = true;
+      document.getElementById(`month${l+1}`).checked = true;
     }
   }
 
   //uncheck all boxes
-  /*else {
+  else {
     for (let l = 0; l < 12; l++) {
       document.getElementById(`month${l+1}`).check = false;
     }
-  }*/
+  }
 }
