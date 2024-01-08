@@ -1,5 +1,5 @@
 # birds-at-my-feeder
-a site to track which birds visit my feeder during each month
+a site to track which birds visit your feeder during each month
 
 <h2>current state:</h2>
 <ul>
