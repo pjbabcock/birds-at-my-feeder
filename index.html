@@ -37,9 +37,6 @@
     <tr>
       <td class="species-name-cell">
         <textarea name="species-name-input" id="species-name-input" rows="1" cols="20"></textarea>
-        <button type="button" onclick="addObservation()">Add</button>
-        <input type="checkbox" id="all-year" onclick="checkAll()">
-        <label for="check-all" id="all-year-label">All year</label>
       </td>
       <td id="month1" class="month-cell" onclick="togglePresent(month1)"></td>
       <td id="month2" class="month-cell" onclick="togglePresent(month2)"></td>
@@ -53,6 +50,15 @@
       <td id="month10" class="month-cell" onclick="togglePresent(month10)"></td>
       <td id="month11" class="month-cell" onclick="togglePresent(month11)"></td>
       <td id="month12" class="month-cell" onclick="togglePresent(month12)"></td>
+    </tr>
+    <tr>
+      <td id="add-button-cell">
+        <button id="add-button" type="button" onclick="addObservation()">Add</button>
+      </td>
+      <td id="all-year-cell">
+        <input type="checkbox" id="all-year" onclick="checkAll()">
+        <label for="check-all" id="all-year-label">All year</label>
+      </td>
     </tr>
   </table>
 </body>

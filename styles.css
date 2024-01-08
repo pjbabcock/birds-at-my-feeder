@@ -31,7 +31,20 @@ table {
   width: 70%;
   margin-right: auto;
   margin-left: auto;
-  overflow: auto;
+  border: none;
+}
+
+#add-button-cell {
+  border: none;
+}
+
+#add-button {
+  margin-left: 130px;
+}
+
+#all-year-cell {
+  border: none;
+  white-space: nowrap;
 }
 
 #all-year-label {
