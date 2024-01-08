@@ -20,6 +20,8 @@ table {
 
 .new-observation-submission {
   width: 70%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .present {
