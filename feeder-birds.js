@@ -49,26 +49,19 @@ function addObservation() {
       if (document.getElementById(`month${j+1}`).checked) {
         newCells[j].classList.add("present");
       }
-      else {
-        newCells[j].classList.add("not-present");
-      }
     }
     
-
     //add on-click behavior to cells
     for (let j = 0; j <12; j++) {
       newCells[j].onclick = function() {
         if (this.classList.contains("present")) {
           this.classList.remove("present");
-          this.classList.add("not-preset");
         }
         else {
-          this.classList.remove("not-present");
           this.classList.add("present");
         }
       }
     }
-
   }
 
   //if repeat species:
