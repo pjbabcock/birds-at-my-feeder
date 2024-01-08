@@ -38,3 +38,12 @@ table {
   border: 2px solid;
   transition-duration: 0.1s
 }
+
+.not-present {
+  transition-duration: 0.1s
+}
+
+.not-preset:hover {
+  border: 2px solid;
+  transition-duration: 0.1s
+}
