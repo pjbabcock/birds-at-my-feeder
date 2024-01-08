@@ -55,6 +55,8 @@ function addObservation() {
 
   //if repeat species:
   else {
+    
+    //fill new months
     for (let k = 0; k < 12; k++) {
       if (document.getElementById(`month${k+1}`).checked) {
         table.rows[i+1].cells[k+1].classList.add("present");
