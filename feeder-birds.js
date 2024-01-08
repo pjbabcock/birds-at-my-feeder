@@ -21,16 +21,15 @@ function addObservation() {
   let c12 = row.insertCell(12);
 
   //fill species name
-  c0.innerHTML = document.getElementById("species-name-input").value;
+c0.innerHTML = document.getElementById("species-name-input").value;
   
   //fill months
-  let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12]
+  let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
   
   for (let i = 0; i < 12; i++) {
     if (document.getElementById(`month${i+1}`).checked) {
-      newCells[i].classList.add("present")
+      newCells[i].classList.add("present");
     }
-    console.log("test")
   }
 
 }
