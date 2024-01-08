@@ -57,7 +57,7 @@ function addObservation() {
   else {
     for (let k = 0; k < 12; k++) {
       if (document.getElementById(`month${k+1}`).checked) {
-        table.rows[i].cells[k+1].classList.add("present");
+        table.rows[i+1].cells[k+1].classList.add("present");
       }
     }
   }
