@@ -74,9 +74,9 @@ function checkAll() {
   }
 
   //uncheck all boxes
-  else {
+  /*else {
     for (let l = 0; l < 12; l++) {
       document.getElementById(`month${l+1}`).check = false;
     }
-  }
+  }*/
 }
