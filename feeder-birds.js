@@ -76,7 +76,7 @@ function checkAll() {
   //uncheck all boxes
   else {
     for (let l = 0; l < 12; l++) {
-      document.getElementById(`month${l+1}`).check = false;
+      document.getElementById(`month${l+1}`).checked = false;
     }
   }
 }
