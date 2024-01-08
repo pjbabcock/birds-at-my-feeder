@@ -60,8 +60,10 @@ function addObservation() {
       newCells[j].onclick = function() {
         if (this.classList.contains("present")) {
           this.classList.remove("present");
+          this.classList.add("not-preset");
         }
         else {
+          this.classList.remove("not-present");
           this.classList.add("present");
         }
       }
