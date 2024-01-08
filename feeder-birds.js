@@ -75,6 +75,13 @@ function addObservation() {
       }
     }
   }
+
+  //clear inputs
+  document.getElementById("species-name-input").value = null;
+  document.getElementById("all-year").checked = false;
+  for (j = 0; j < 12; j++) {
+    document.getElementById(`month${j+1}`).classList.remove("present");
+  }
 }
 
 //"All-year" checkbox behavior:
@@ -82,14 +89,14 @@ function checkAll() {
   //check all boxes
   if (document.getElementById("all-year").checked) {
     for (let j = 0; j < 12; j++) {
-      document.getElementById(`month${j+1}`).checked = true;
+      document.getElementById(`month${j+1}`).classList.add("present");
     }
   }
 
   //uncheck all boxes
   else {
     for (let j = 0; j < 12; j++) {
-      document.getElementById(`month${j+1}`).checked = false;
+      document.getElementById(`month${j+1}`).classList.remove("present");
     }
   }
 }
