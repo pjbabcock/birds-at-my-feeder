@@ -7,14 +7,14 @@ function addObservation() {
 
   //check for repeat species
   let previousSpecies = table.getElementsByClassName("species-name")
-  let i = 0
+  let rowsChecked = 0
   let speciesCheck = false
-  while (i < previousSpecies.length) {
+  for ( i = 0; i < previousSpecies.length; i++) {
     if (previousSpecies[i].innerHTML === speciesNameInput) {
       speciesCheck = true;
       break;
     }
-    i++;
+    rowsChecked++;
   }
 
   //if new species:
@@ -45,16 +45,16 @@ function addObservation() {
     //style new month cells
     let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
   
-    for (let j = 0; j < 12; j++) {
-      newCells[j].classList.add("month-cell")
-      if (document.getElementById(`month${j+1}`).classList.contains("present")) {
-        newCells[j].classList.add("present");
+    for (let i = 0; i < 12; i++) {
+      newCells[i].classList.add("month-cell")
+      if (document.getElementById(`month${i+1}`).classList.contains("present")) {
+        newCells[i].classList.add("present");
       }
     }
     
     //add on-click behavior to cells
-    for (let j = 0; j <12; j++) {
-      newCells[j].onclick = function() {
+    for (let i = 0; i <12; i++) {
+      newCells[i].onclick = function() {
         if (this.classList.contains("present")) {
           this.classList.remove("present");
         }
@@ -69,9 +69,9 @@ function addObservation() {
   else {
 
     //fill new months
-    for (let j = 0; j < 12; j++) {
-      if (document.getElementById(`month${j+1}`).classList.contains("present")) {
-        table.rows[i+1].cells[j+1].classList.add("present");
+    for (let i = 0; i < 12; i++) {
+      if (document.getElementById(`month${i+1}`).classList.contains("present")) {
+        table.rows[rowsChecked+1].cells[i+1].classList.add("present");
       }
     }
   }
@@ -79,8 +79,8 @@ function addObservation() {
   //clear inputs
   document.getElementById("species-name-input").value = null;
   document.getElementById("all-year").checked = false;
-  for (j = 0; j < 12; j++) {
-    document.getElementById(`month${j+1}`).classList.remove("present");
+  for (i = 0; i < 12; i++) {
+    document.getElementById(`month${i+1}`).classList.remove("present");
   }
 }
 
@@ -88,15 +88,15 @@ function addObservation() {
 function checkAll() {
   //check all boxes
   if (document.getElementById("all-year").checked) {
-    for (let j = 0; j < 12; j++) {
-      document.getElementById(`month${j+1}`).classList.add("present");
+    for (let i = 0; i < 12; i++) {
+      document.getElementById(`month${i+1}`).classList.add("present");
     }
   }
 
   //uncheck all boxes
   else {
-    for (let j = 0; j < 12; j++) {
-      document.getElementById(`month${j+1}`).classList.remove("present");
+    for (let i = 0; i < 12; i++) {
+      document.getElementById(`month${i+1}`).classList.remove("present");
     }
   }
 }
