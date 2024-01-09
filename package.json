@@ -1,13 +1,13 @@
 {
   "name": "birds-at-my-feeder",
-  "version": "1.0.0",
-  "description": "a site to track which birds visit my feeder during each month",
+  "version": "0.1.0",
+  "description": "a site to track which birds visit your feeder during each month",
   "main": "index.js",
   "scripts": {
     "restore_workspace": "npm install",
     "start_dev": "http-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "Peter Babcock",
   "license": "ISC"
 }
