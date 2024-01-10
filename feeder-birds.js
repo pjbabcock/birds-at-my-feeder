@@ -6,7 +6,7 @@ function addObservation() {
   let speciesNameInput = document.getElementById("species-name-input").value;
 
   //check for repeat species
-  let previousSpecies = table.getElementsByClassName("species-name")
+  let previousSpecies = table.getElementsByClassName("species-name");
   let rowsChecked = 0
   let speciesCheck = false
   for ( i = 0; i < previousSpecies.length; i++) {
@@ -37,10 +37,22 @@ function addObservation() {
     let c10 = row.insertCell(10);
     let c11 = row.insertCell(11);
     let c12 = row.insertCell(12);
+    let c13 = row.insertCell(13);
 
     //fill species name
     c0.innerHTML = speciesNameInput;
     c0.classList.add("species-name");
+
+    //create delete button
+    let deleteButtonFake = document.createElement("button");
+    let deleteButton = deleteButtonFake.cloneNode(true);
+    deleteButton.id = "delete-button";
+    deleteButton.type = "button";
+    deleteButton.innerHTML = "Delete";
+    deleteButton.onclick = function() {
+      alert("hello world");
+    }
+    c13.appendChild(deleteButton);
   
     //style new month cells
     let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
