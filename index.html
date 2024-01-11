@@ -3,6 +3,7 @@
 <head>
   <title>Birds at My Feeder</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="./css/autoComplete.css">
   <script type="text/javascript" src="feeder-birds.js"> </script>
 </head>
 
@@ -37,7 +38,7 @@
     </colgroup>
     <tr>
       <td class="species-name-cell">
-        <input type="text" id="species-name-input" size="19"></textarea>
+        
       </td>
       <td id="month1" class="month-cell" onclick="togglePresent(month1)"></td>
       <td id="month2" class="month-cell" onclick="togglePresent(month2)"></td>
@@ -60,6 +61,7 @@
       </td>
     </tr>
   </table>
+  <input type="text" id="autoComplete" size="19"/>
 </body>
 
 </html>
