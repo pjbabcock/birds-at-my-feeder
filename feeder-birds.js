@@ -124,15 +124,3 @@ function togglePresent(boxId) {
 }
 
 //Autocompleter
-import autoComplete from "@tarekraafat/dist/autocomplete.js";
-
-const autoCompleteJS = new autoComplete({
-  placeHolder: "Search for a species",
-  data: {
-    src: ["House Finch", "House Wren", "Dark-eyed Junco"]
-  },
-  resultItem: {
-    highlight: true,
-  }
-
-});
