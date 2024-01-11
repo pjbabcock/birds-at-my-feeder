@@ -11,5 +11,6 @@
   "author": "Peter Babcock",
   "license": "ISC",
   "dependencies": {
+    "@tarekraafat/autocomplete.js": "^10.2.7"
   }
 }
