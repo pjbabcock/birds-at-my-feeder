@@ -11,6 +11,5 @@
   "author": "Peter Babcock",
   "license": "ISC",
   "dependencies": {
-    "autocompleter": "^9.1.2"
   }
 }
