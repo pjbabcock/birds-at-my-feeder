@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Peter Babcock",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "autocompleter": "^9.1.2"
+  }
 }
