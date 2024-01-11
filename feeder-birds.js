@@ -45,14 +45,14 @@ function addObservation() {
 
     //create delete button
     let deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button")
+    deleteButton.classList.add("delete-button");
     deleteButton.type = "button";
     deleteButton.innerHTML = "Delete";
     deleteButton.onclick = function() {
-      alert("hello world");
+      this.parentElement.parentElement.remove();
     }
     c13.appendChild(deleteButton);
-    c13.classList.add("delete-button-cell")
+    c13.classList.add("delete-button-cell");
   
     //style new month cells
     let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
