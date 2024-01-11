@@ -39,17 +39,13 @@ table {
   border: none;
 }
 
-#add-button-cell {
-  border: none;
-}
-
-#add-button {
-  margin-left: 130px;
-}
-
 #all-year-cell {
   border: none;
   white-space: nowrap;
+}
+
+#all-year {
+  margin-left:176px;
 }
 
 #all-year-label {
