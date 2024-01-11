@@ -2,10 +2,6 @@ h1 {
   text-align: center;
 }
 
-th, td {
-  border: 1px solid;
-}
-
 table {
   border: none;
   table-layout: fixed;
@@ -13,6 +9,10 @@ table {
   width: 70%;
   margin-right: auto;
   margin-left: auto
+}
+
+th, td {
+  border: 1px solid;
 }
 
 .species-name-column {
@@ -39,6 +39,10 @@ table {
   border: none;
 }
 
+#add-button {
+  margin: 3px;
+}
+
 #all-year-cell {
   border: none;
   white-space: nowrap;
@@ -54,6 +58,10 @@ table {
 
 .delete-button-cell {
   border: none;
+}
+
+.delete-button {
+  margin-left: 3px;
 }
 
 tr>:nth-child(14) {

@@ -45,7 +45,7 @@ function addObservation() {
 
     //create delete button
     let deleteButton = document.createElement("button");
-    deleteButton.id = "delete-button";
+    deleteButton.classList.add("delete-button")
     deleteButton.type = "button";
     deleteButton.innerHTML = "Delete";
     deleteButton.onclick = function() {
