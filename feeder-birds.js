@@ -124,14 +124,14 @@ function togglePresent(boxId) {
 }
 
 //Autocompleter
-import autocomplete from "autocompleter";
+var autocomplete = require('autocompleter');
 
 var countries = [
   { label: 'United Kingdom', value: 'UK' },
   { label: 'United States', value: 'US' }
 ];
 
-var input = document.getElementById('country');
+var input = document.getElementById("species-name-input");
 
 autocomplete({
   input: input,
