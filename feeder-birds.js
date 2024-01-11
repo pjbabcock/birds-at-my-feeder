@@ -123,4 +123,5 @@ function togglePresent(boxId) {
   }
 }
 
-//Autocompleter
+//Autocomplete array
+let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee"]
