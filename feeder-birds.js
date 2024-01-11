@@ -124,6 +124,8 @@ function togglePresent(boxId) {
 }
 
 //Autocompleter
+import autocomplete from "autocompleter";
+
 var countries = [
   { label: 'United Kingdom', value: 'UK' },
   { label: 'United States', value: 'US' }
