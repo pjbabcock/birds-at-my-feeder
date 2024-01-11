@@ -2,16 +2,21 @@ h1 {
   text-align: center;
 }
 
-table, th, td {
-  border: 1px solid;
-}
-
 table {
+  border: none;
   table-layout: fixed;
   border-collapse: collapse;
   width: 70%;
   margin-right: auto;
   margin-left: auto
+}
+
+th, td {
+  border: 1px solid;
+}
+
+.species-name-column {
+  width: 175px;
 }
 
 .month-cell {
@@ -34,12 +39,8 @@ table {
   border: none;
 }
 
-#add-button-cell {
-  border: none;
-}
-
 #add-button {
-  margin-left: 130px;
+  margin: 3px;
 }
 
 #all-year-cell {
@@ -47,8 +48,24 @@ table {
   white-space: nowrap;
 }
 
+#all-year {
+  margin-left:176px;
+}
+
 #all-year-label {
   font-weight: bold;
+}
+
+.delete-button-cell {
+  border: none;
+}
+
+.delete-button {
+  margin-left: 3px;
+}
+
+tr>:nth-child(14) {
+  border: none;
 }
 
 .present {
