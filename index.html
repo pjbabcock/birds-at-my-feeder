@@ -72,10 +72,10 @@
       search: input => {
         if (input.length < 1) { return [] }
         return birdSpecies.filter(bird => {
-          return bird.toLowerCase().startsWith(input.toLowerCase())
+          return bird.toLowerCase().includes(input.toLowerCase())
         })
       },
-      autoSelect: true
+      autoselect: true
     });
   }) ();
 </script>
