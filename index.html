@@ -40,7 +40,7 @@
     <tr>
       <td class="species-name-cell">
         <div id="species-name-div" class="autocomplete">
-          <input type="text" id="species-name-input" class="autcomplete-input" size="19"/>
+          <input type="text" id="species-name-input" class="autcomplete-input"/>
           <ul class="autocomplete-result-list"></ul>
         </div>
       </td>
@@ -59,6 +59,7 @@
       <td><button id="add-button" type="button" onclick="addObservation()">Add</button></td>
     </tr>
     <tr>
+      <td id="blank-cell"></td>
       <td id="all-year-cell">
         <input type="checkbox" id="all-year" onclick="checkAll()">
         <label for="check-all" id="all-year-label">All year</label>

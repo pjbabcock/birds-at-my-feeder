@@ -16,7 +16,8 @@ th, td {
 }
 
 .species-name-column {
-  width: 175px
+  box-sizing: border-box;
+  width: 28%
 }
 
 .month-cell {
@@ -29,7 +30,8 @@ th, td {
 }
 
 .months-column {
-  width: 45px
+  box-sizing: border-box;
+  width: 6%
 }
 
 .new-observation-submission {
@@ -39,17 +41,21 @@ th, td {
   border: none
 }
 
+#species-name-input {
+  width: 95%
+}
+
 #add-button {
   margin: 3px
 }
 
-#all-year-cell {
-  border: none;
-  white-space: nowrap
+#blank-cell {
+  border: none
 }
 
-#all-year {
-  margin-left:176px
+#all-year-cell {
+  border: none;
+  white-space: nowrap;
 }
 
 #all-year-label {
@@ -89,8 +95,4 @@ tr>:nth-child(14) {
   list-style: none;
   text-align: left;
   box-shadow: 0 2px 2px rgba(0,0,0,.16)
-}
-
-#species-name-div {
-  width: fit-content
 }
