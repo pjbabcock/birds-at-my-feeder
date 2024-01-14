@@ -17,7 +17,8 @@ th, td {
 
 .species-name-column {
   box-sizing: border-box;
-  width: 28%
+  width: 28%;
+  min-width: 450px
 }
 
 .month-cell {
