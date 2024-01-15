@@ -10,11 +10,11 @@ function addObservation() {
   let rowsChecked = 0
   let speciesCheck = false
   for ( i = 0; i < previousSpecies.length; i++) {
+    rowsChecked++;
     if (previousSpecies[i].innerHTML === speciesNameInput) {
       speciesCheck = true;
       break;
     }
-    rowsChecked++;
   }
 
   //if new species:
@@ -83,7 +83,7 @@ function addObservation() {
     //fill new months
     for (let i = 0; i < 12; i++) {
       if (document.getElementById(`month${i+1}`).classList.contains("present")) {
-        table.rows[rowsChecked+1].cells[i+1].classList.add("present");
+        table.rows[rowsChecked].cells[i+1].classList.add("present");
       }
     }
   }
