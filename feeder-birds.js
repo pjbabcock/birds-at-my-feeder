@@ -18,7 +18,7 @@ function addObservation() {
   }
 
   //if new species:
-  if (speciesCheck === false) {
+  if (speciesCheck === false && speciesNameInput) {
   
     //create row
     let row = table.insertRow(-1);
