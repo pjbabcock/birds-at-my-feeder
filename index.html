@@ -73,7 +73,7 @@
 </body>
 <script>
   (function () {
-    new Autocomplete("#species-name-div", {
+    new Autocomplete(".autocomplete", {
       search: input => {
         if (input.length < 1) { return [] }
         return birdSpecies.filter(bird => {
