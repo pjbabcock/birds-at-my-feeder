@@ -256,6 +256,13 @@ function addFeeder() {
 
   //create Add button
   let newAddButton = document.createElement("button")
+  newAddButton.id = `add-button-${newestTableNumber}`
+  newAddButton.type = "button"
+  newAddButton.innerHTML = "Add"
+  newAddButton.setAttribute("onclick", "addObservation()")
+
+  //append Add button to submission table
+  s13.appendChild(newAddButton)
 }
 
 //Autocomplete array
