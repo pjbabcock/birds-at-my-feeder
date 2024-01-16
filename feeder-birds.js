@@ -1,6 +1,6 @@
 function addObservation() {
   //get table
-  let table = document.getElementById("observation-table");
+  let table = document.getElementById("feeder-table-0");
 
   //get species input value
   let speciesNameInput = document.getElementById("species-name-input").value;
@@ -121,6 +121,53 @@ function togglePresent(boxId) {
   else {
     boxId.classList.add("present");
   }
+}
+
+//Add a new feeder:
+let newestTableNumber = 0
+function addFeeder() {
+  newestTableNumber++
+  //Create table
+  let newTable = document.createElement("table");
+  newTable.id = `feeder-table-${newestTableNumber}`
+  newTable.classList.add("feeder-table")
+
+  //Add row for headers
+  let titleRow = newTable.insertRow(0)
+
+  //Add cells for headers
+  let c0 = titleRow.insertCell(0);
+  let c1 = titleRow.insertCell(1);
+  let c2 = titleRow.insertCell(2);
+  let c3 = titleRow.insertCell(3);
+  let c4 = titleRow.insertCell(4);
+  let c5 = titleRow.insertCell(5);
+  let c6 = titleRow.insertCell(6);
+  let c7 = titleRow.insertCell(7);
+  let c8 = titleRow.insertCell(8);
+  let c9 = titleRow.insertCell(9);
+  let c10 = titleRow.insertCell(10);
+  let c11 = titleRow.insertCell(11);
+  let c12 = titleRow.insertCell(12);
+  let c13 = titleRow.insertCell(13);
+
+  //fill header cells
+  c0.outerHTML = "<th>Species Name</th>"
+  c1.outerHTML = "<th>Jan</th>"
+  c2.outerHTML = "<th>Feb</th>"
+  c3.outerHTML = "<th>Mar</th>"
+  c4.outerHTML = "<th>Apr</th>"
+  c5.outerHTML = "<th>May</th>"
+  c6.outerHTML = "<th>Jun</th>"
+  c7.outerHTML = "<th>Jul</th>"
+  c8.outerHTML = "<th>Aug</th>"
+  c9.outerHTML = "<th>Sep</th>"
+  c10.outerHTML = "<th>Oct</th>"
+  c11.outerHTML = "<th>Nov</th>"
+  c12.outerHTML = "<th>Dec</th>"
+
+  //append to DOM
+  document.getElementById("feeder-data-container").appendChild(newTable)
 }
 
 //Autocomplete array

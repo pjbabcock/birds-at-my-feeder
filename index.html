@@ -9,7 +9,8 @@
 
 <body>
   <h1>Birds at My Feeder</h1>
-  <table id="observation-table" class="observation-table">
+  <div id="feeder-data-container">
+    <table id="feeder-table-0" class="feeder-table">
     <colgroup>
       <col span="1" class="species-name-column">
       <col span="12" class="months-column">
@@ -30,8 +31,8 @@
       <th>Dec</th>
       <th></th>
     </tr>
-  </table>
-  <table id="new-observation-submission" class="new-observation-submission">
+    </table>
+    <table id="new-observation-submission" class="new-observation-submission">
     <colgroup>
       <col span="1" class="species-name-column">
       <col span="12" class="months-column">
@@ -64,8 +65,9 @@
         <label for="check-all" id="all-year-label">All year</label>
       </td>
     </tr>
-  </table>
-  <div>
+    </table>
+  </div>
+  <div id="add-feeder-button-container">
     <button id="add-feeder-button" type="button" onclick="addFeeder()">+</button>
   </div>
 </body>
