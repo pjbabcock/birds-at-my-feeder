@@ -47,24 +47,24 @@ th {
   border: none
 }
 
-#species-name-input {
+.autocomplete-input {
   width: 95%
 }
 
-#add-button {
+.add-button {
   margin: 3px
 }
 
-#blank-cell {
+.blank-cell {
   border: none
 }
 
-#all-year-cell {
+.all-year-cell {
   border: none;
   white-space: nowrap;
 }
 
-#all-year-label {
+.all-year-label {
   font-weight: bold
 }
 

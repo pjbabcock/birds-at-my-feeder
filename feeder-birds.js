@@ -7,7 +7,7 @@ function addObservation(tableId) {
   let table = document.getElementById(tableId);
 
   //get species input value
-  let speciesNameInput = document.getElementById("speces-name-input_" + tableId).value;
+  let speciesNameInput = document.getElementById(`species-name-input_${tableId}`).value;
 
   //check for repeat species
   let previousSpecies = table.getElementsByClassName("species-name");
@@ -82,7 +82,7 @@ function addObservation(tableId) {
   }
 
   //if repeat species:
-  else {
+  else if (speciesNameInput) {
 
     //fill new months
     for (let i = 0; i < 12; i++) {
@@ -93,26 +93,28 @@ function addObservation(tableId) {
   }
 
   //clear inputs
-  document.getElementById(`species-name-input_${tableId}`).value = null;
-  document.getElementById(`all-year_${tableId}`).checked = false;
-  for (i = 0; i < 12; i++) {
-    document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
+  if (speciesNameInput) {
+    document.getElementById(`species-name-input_${tableId}`).value = null;
+    document.getElementById(`all-year_${tableId}`).checked = false;
+    for (i = 0; i < 12; i++) {
+      document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
+    }
   }
 }
 
 //"All-year" checkbox behavior:
-function checkAll() {
+function checkAll(tableId) {
   //check all boxes
-  if (document.getElementById("all-year").checked) {
+  if (document.getElementById(`all-year_${tableId}`).checked) {
     for (let i = 0; i < 12; i++) {
-      document.getElementById(`month${i+1}`).classList.add("present");
+      document.getElementById(`month${i+1}_${tableId}`).classList.add("present");
     }
   }
 
   //uncheck all boxes
   else {
     for (let i = 0; i < 12; i++) {
-      document.getElementById(`month${i+1}`).classList.remove("present");
+      document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
     }
   }
 }
@@ -224,13 +226,13 @@ function addFeeder() {
   //create bird name input
   let nameField = document.createElement("input");
   nameField.type = "text";
-  nameField.id = "species-name-input";
+  nameField.id = `species-name-input_${newTable.id}`;
   nameField.classList.add("autocomplete-input");
   nameField.placeholder = "Search for a bird";
 
   //create ul for autocomplete
   let nameFieldList = document.createElement("ul");
-  nameFieldList.classList.add("autocomplete");
+  nameFieldList.classList.add("autocomplete-result-list");
 
   //create div for autocomplete
   let nameFieldContainer = document.createElement("div");
@@ -250,19 +252,63 @@ function addFeeder() {
 
   for (let i=0; i < 12; i++) {
     newSubCells[i].classList.add("month-cell");
-    newSubCells[i].id = `month${i+1}_${newestTableNumber}`;
+    newSubCells[i].id = `month${i+1}_${newTable.id}`;
     newSubCells[i].setAttribute("onclick", `togglePresent(${newSubCells[i].id})`);
   }
 
   //create Add button
-  let newAddButton = document.createElement("button")
-  newAddButton.id = `add-button-${newestTableNumber}`
-  newAddButton.type = "button"
-  newAddButton.innerHTML = "Add"
-  newAddButton.setAttribute("onclick", `addObservation(${newTable.id})`)
+  let newAddButton = document.createElement("button");
+  newAddButton.id = `add-button-${newestTableNumber}`;
+  newAddButton.type = "button";
+  newAddButton.innerHTML = "Add";
+  newAddButton.setAttribute("onclick", `addObservation("${newTable.id}")`);
 
   //append Add button to submission table
-  s13.appendChild(newAddButton)
+  s13.appendChild(newAddButton);
+
+  //create row for all year checkbox
+  let allYearRow = newSubTable.insertRow(-1);
+
+  //add cells to all year row
+  y0 = allYearRow.insertCell(0);
+  y1 = allYearRow.insertCell(1);
+
+  //format cells
+  y0.classList.add("blank-cell");
+  y1.classList.add("all-year-cell");
+
+  //create all year checkbox
+  let newCheckbox = document.createElement("input");
+  newCheckbox.type = "checkbox";
+  newCheckbox.id = `all-year_${newTable.id}`;
+  newCheckbox.classList.add("all-year");
+  newCheckbox.setAttribute("onclick", `checkAll('${newTable.id}')`);
+
+  //creat all year label
+  let newCheckLabel = document.createElement("label");
+  newCheckLabel.htmlFor = `all-year_${newTable.id}`;
+  newCheckLabel.id = `all-year-label_${newTable.id}`;
+  newCheckLabel.classList.add("all-year-label");
+  newCheckLabel.innerHTML = "All year";
+
+  //append checkbox and label to cell
+  y1.appendChild(newCheckbox);
+  y1.appendChild(newCheckLabel);
+
+  //apply autocomplete to all inputs
+  const elements = document.querySelectorAll(".autocomplete");
+    const search = input => {
+        if (input.length < 1) { return [] }
+        return birdSpecies.filter(bird => {
+          return bird.toLowerCase().includes(input.toLowerCase())
+        })
+      }
+    elements.forEach(el => {
+      new Autocomplete(el, {
+        search,
+        autoselect: true
+      });
+    })
 }
 
 //Autocomplete array
