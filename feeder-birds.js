@@ -7,7 +7,7 @@ function addObservation(tableId) {
   let table = document.getElementById(tableId);
 
   //get species input value
-  let speciesNameInput = document.getElementById(`species-name-input_feederTable0`).value;
+  let speciesNameInput = document.getElementById(`species-name-input_${tableId}`).value;
 
   //check for repeat species
   let previousSpecies = table.getElementsByClassName("species-name");
