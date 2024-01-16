@@ -3,7 +3,8 @@
 <head>
   <title>Birds at My Feeder</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <script type="text/javascript" src="feeder-birds.js"> </script>
+  <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+  <script type="text/javascript" src="feeder-birds.js"></script>
 </head>
 
 <body>
@@ -37,7 +38,10 @@
     </colgroup>
     <tr>
       <td class="species-name-cell">
-        <textarea name="species-name-input" id="species-name-input" rows="1" cols="20"></textarea>
+        <div id="species-name-div" class="autocomplete">
+          <input type="text" id="species-name-input" class="autcomplete-input" placeholder="Search for a bird"/>
+          <ul class="autocomplete-result-list"></ul>
+        </div>
       </td>
       <td id="month1" class="month-cell" onclick="togglePresent(month1)"></td>
       <td id="month2" class="month-cell" onclick="togglePresent(month2)"></td>
@@ -54,6 +58,7 @@
       <td><button id="add-button" type="button" onclick="addObservation()">Add</button></td>
     </tr>
     <tr>
+      <td id="blank-cell"></td>
       <td id="all-year-cell">
         <input type="checkbox" id="all-year" onclick="checkAll()">
         <label for="check-all" id="all-year-label">All year</label>
@@ -61,5 +66,17 @@
     </tr>
   </table>
 </body>
-
+<script>
+  (function () {
+    new Autocomplete("#species-name-div", {
+      search: input => {
+        if (input.length < 1) { return [] }
+        return birdSpecies.filter(bird => {
+          return bird.toLowerCase().includes(input.toLowerCase())
+        })
+      },
+      autoselect: true
+    });
+  }) ();
+</script>
 </html>

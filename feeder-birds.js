@@ -10,15 +10,15 @@ function addObservation() {
   let rowsChecked = 0
   let speciesCheck = false
   for ( i = 0; i < previousSpecies.length; i++) {
+    rowsChecked++;
     if (previousSpecies[i].innerHTML === speciesNameInput) {
       speciesCheck = true;
       break;
     }
-    rowsChecked++;
   }
 
   //if new species:
-  if (speciesCheck === false) {
+  if (speciesCheck === false && speciesNameInput) {
   
     //create row
     let row = table.insertRow(-1);
@@ -83,7 +83,7 @@ function addObservation() {
     //fill new months
     for (let i = 0; i < 12; i++) {
       if (document.getElementById(`month${i+1}`).classList.contains("present")) {
-        table.rows[rowsChecked+1].cells[i+1].classList.add("present");
+        table.rows[rowsChecked].cells[i+1].classList.add("present");
       }
     }
   }
@@ -122,4 +122,6 @@ function togglePresent(boxId) {
     boxId.classList.add("present");
   }
 }
-  
+
+//Autocomplete array
+let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee", "Yellow-bellied Sapsucker", "Yellow-throated Nightingale-Thrush"]

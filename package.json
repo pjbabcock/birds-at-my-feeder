@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Peter Babcock",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@trevoreyre/autocomplete-js": "^2.4.1"
+  }
 }
