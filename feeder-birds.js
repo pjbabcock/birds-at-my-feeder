@@ -1,3 +1,7 @@
+//global variables
+let newestTableNumber = 0
+
+//add new bird to feeder table
 function addObservation() {
   //get table
   let table = document.getElementById("feeder-table-0");
@@ -124,7 +128,6 @@ function togglePresent(boxId) {
 }
 
 //Add a new feeder:
-let newestTableNumber = 0
 function addFeeder() {
   newestTableNumber++
 
