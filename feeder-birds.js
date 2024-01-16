@@ -132,6 +132,18 @@ function addFeeder() {
   newTable.id = `feeder-table-${newestTableNumber}`
   newTable.classList.add("feeder-table")
 
+  //format columns
+  let newColGroup = document.createElement("colgroup")
+  let newSpeciesCol = document.createElement("col")
+  newSpeciesCol.span = 1
+  newSpeciesCol.classList.add("species-name-column")
+  let newMonthsCols = document.createElement("col")
+  newMonthsCols.span = 12
+  newMonthsCols.classList.add("months-column")
+  newColGroup.appendChild(newSpeciesCol)
+  newColGroup.appendChild(newMonthsCols)
+  newTable.appendChild(newColGroup)
+
   //Add row for headers
   let titleRow = newTable.insertRow(0)
 
