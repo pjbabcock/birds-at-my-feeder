@@ -187,8 +187,8 @@ function addFeeder() {
 
   //create submission table
   let newSubTable = document.createElement("table");
-  newTable.id = `new-observation-submission-${newestTableNumber}`;
-  newTable.classList.add("new-observation-submission");
+  newSubTable.id = `new-observation-submission-${newestTableNumber}`;
+  newSubTable.classList.add("new-observation-submission");
 
   //format columns of submission table
   let newSubColGroup = document.createElement("colgroup");
@@ -253,6 +253,9 @@ function addFeeder() {
     newSubCells[i].id = `month${i+1}_${newestTableNumber}`;
     newSubCells[i].setAttribute("onclick", `togglePresent(${newSubCells[i].id})`);
   }
+
+  //create Add button
+  let newAddButton = 
 }
 
 //Autocomplete array
