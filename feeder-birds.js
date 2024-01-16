@@ -251,6 +251,7 @@ function addFeeder() {
   for (let i=0; i < 12; i++) {
     newSubCells[i].classList.add("month-cell");
     newSubCells[i].id = `month${i+1}_${newestTableNumber}`;
+    newSubCells[i].setAttribute("onclick", `togglePresent(${newSubCells[i].id})`);
   }
 }
 
