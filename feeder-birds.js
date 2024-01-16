@@ -127,25 +127,26 @@ function togglePresent(boxId) {
 let newestTableNumber = 0
 function addFeeder() {
   newestTableNumber++
-  //Create table
-  let newTable = document.createElement("table");
-  newTable.id = `feeder-table-${newestTableNumber}`
-  newTable.classList.add("feeder-table")
 
-  //format columns
-  let newColGroup = document.createElement("colgroup")
-  let newSpeciesCol = document.createElement("col")
-  newSpeciesCol.span = 1
-  newSpeciesCol.classList.add("species-name-column")
-  let newMonthsCols = document.createElement("col")
-  newMonthsCols.span = 12
-  newMonthsCols.classList.add("months-column")
-  newColGroup.appendChild(newSpeciesCol)
-  newColGroup.appendChild(newMonthsCols)
-  newTable.appendChild(newColGroup)
+  //Create feeder table
+  let newTable = document.createElement("table");
+  newTable.id = `feeder-table-${newestTableNumber}`;
+  newTable.classList.add("feeder-table");
+
+  //format columns of feeder table
+  let newColGroup = document.createElement("colgroup");
+  let newSpeciesCol = document.createElement("col");
+  newSpeciesCol.span = 1;
+  newSpeciesCol.classList.add("species-name-column");
+  let newMonthsCols = document.createElement("col");
+  newMonthsCols.span = 12;
+  newMonthsCols.classList.add("months-column");
+  newColGroup.appendChild(newSpeciesCol);
+  newColGroup.appendChild(newMonthsCols);
+  newTable.appendChild(newColGroup);
 
   //Add row for headers
-  let titleRow = newTable.insertRow(0)
+  let titleRow = newTable.insertRow(0);
 
   //Add cells for headers
   let c0 = titleRow.insertCell(0);
@@ -164,22 +165,81 @@ function addFeeder() {
   let c13 = titleRow.insertCell(13);
 
   //fill header cells
-  c0.outerHTML = "<th>Species Name</th>"
-  c1.outerHTML = "<th>Jan</th>"
-  c2.outerHTML = "<th>Feb</th>"
-  c3.outerHTML = "<th>Mar</th>"
-  c4.outerHTML = "<th>Apr</th>"
-  c5.outerHTML = "<th>May</th>"
-  c6.outerHTML = "<th>Jun</th>"
-  c7.outerHTML = "<th>Jul</th>"
-  c8.outerHTML = "<th>Aug</th>"
-  c9.outerHTML = "<th>Sep</th>"
-  c10.outerHTML = "<th>Oct</th>"
-  c11.outerHTML = "<th>Nov</th>"
-  c12.outerHTML = "<th>Dec</th>"
+  c0.outerHTML = "<th>Species Name</th>";
+  c1.outerHTML = "<th>Jan</th>";
+  c2.outerHTML = "<th>Feb</th>";
+  c3.outerHTML = "<th>Mar</th>";
+  c4.outerHTML = "<th>Apr</th>";
+  c5.outerHTML = "<th>May</th>";
+  c6.outerHTML = "<th>Jun</th>";
+  c7.outerHTML = "<th>Jul</th>";
+  c8.outerHTML = "<th>Aug</th>";
+  c9.outerHTML = "<th>Sep</th>";
+  c10.outerHTML = "<th>Oct</th>";
+  c11.outerHTML = "<th>Nov</th>";
+  c12.outerHTML = "<th>Dec</th>";
 
   //append to DOM
-  document.getElementById("feeder-data-container").appendChild(newTable)
+  document.getElementById("feeder-data-container").appendChild(newTable);
+
+  //create submission table
+  let newSubTable = document.createElement("table");
+  newTable.id = `new-observation-submission-${newestTableNumber}`;
+  newTable.classList.add("new-observation-submission");
+
+  //format columns of submission table
+  let newSubColGroup = document.createElement("colgroup");
+  let newSubSpeciesCol = document.createElement("col");
+  newSubSpeciesCol.span = 1;
+  newSubSpeciesCol.classList.add("species-name-column");
+  let newSubMonthsCols = document.createElement("col");
+  newSubMonthsCols.span = 12;
+  newSubMonthsCols.classList.add("months-column");
+  newSubColGroup.appendChild(newSubSpeciesCol);
+  newSubColGroup.appendChild(newSubMonthsCols);
+  newSubTable.appendChild(newSubColGroup);
+
+  //add row for submission table
+  let subRow = newSubTable.insertRow(0);
+
+  //add cells to submission table
+  let s0 = subRow.insertCell(0);
+  let s1 = subRow.insertCell(1);
+  let s2 = subRow.insertCell(2);
+  let s3 = subRow.insertCell(3);
+  let s4 = subRow.insertCell(4);
+  let s5 = subRow.insertCell(5);
+  let s6 = subRow.insertCell(6);
+  let s7 = subRow.insertCell(7);
+  let s8 = subRow.insertCell(8);
+  let s9 = subRow.insertCell(9);
+  let s10 = subRow.insertCell(10);
+  let s11 = subRow.insertCell(11);
+  let s12 = subRow.insertCell(12);
+  let s13 = subRow.insertCell(13);
+
+  //create bird name input
+  let nameField = document.createElement("input");
+  nameField.type = "text";
+  nameField.id = "species-name-input";
+  nameField.classList.add("autocomplete-input");
+  nameField.placeholder = "Search for a bird";
+
+  //create ul for autocomplete
+  let nameFieldList = document.createElement("ul");
+  nameFieldList.classList.add("autocomplete");
+
+  //create div for autocomplete
+  let nameFieldContainer = document.createElement("div");
+  nameFieldContainer.id = "species-name-div";
+  nameFieldContainer.classList.add("autocomplete");
+  nameFieldContainer.appendChild(nameField);
+  nameFieldContainer.appendChild(nameFieldList)
+
+  //place div in submission table
+  s0.appendChild(nameFieldContainer)
+
+  document.getElementById("feeder-data-container").appendChild(newSubTable);
 }
 
 //Autocomplete array
