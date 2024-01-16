@@ -179,7 +179,7 @@ function addFeeder() {
   c11.outerHTML = "<th>Nov</th>";
   c12.outerHTML = "<th>Dec</th>";
 
-  //append to DOM
+  //append feeder table to DOM
   document.getElementById("feeder-data-container").appendChild(newTable);
 
   //create submission table
@@ -239,6 +239,10 @@ function addFeeder() {
   //place div in submission table
   s0.appendChild(nameFieldContainer)
 
+  //format month cells
+  s1.classList.add("month-cell")
+
+  //append submission table to DOM
   document.getElementById("feeder-data-container").appendChild(newSubTable);
 }
 
