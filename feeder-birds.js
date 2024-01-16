@@ -2,12 +2,12 @@
 let newestTableNumber = 0
 
 //add new bird to feeder table
-function addObservation() {
+function addObservation(tableId) {
   //get table
-  let table = document.getElementById("feeder-table-0");
+  let table = document.getElementById(tableId);
 
   //get species input value
-  let speciesNameInput = document.getElementById("species-name-input").value;
+  let speciesNameInput = document.getElementById(`species-name-input_${tableId}`).value;
 
   //check for repeat species
   let previousSpecies = table.getElementsByClassName("species-name");
@@ -63,7 +63,7 @@ function addObservation() {
   
     for (let i = 0; i < 12; i++) {
       newCells[i].classList.add("month-cell")
-      if (document.getElementById(`month${i+1}`).classList.contains("present")) {
+      if (document.getElementById(`month${i+1}_${tableId}`).classList.contains("present")) {
         newCells[i].classList.add("present");
       }
     }
@@ -86,17 +86,17 @@ function addObservation() {
 
     //fill new months
     for (let i = 0; i < 12; i++) {
-      if (document.getElementById(`month${i+1}`).classList.contains("present")) {
+      if (document.getElementById(`month${i+1}_${tableId}`).classList.contains("present")) {
         table.rows[rowsChecked].cells[i+1].classList.add("present");
       }
     }
   }
 
   //clear inputs
-  document.getElementById("species-name-input").value = null;
-  document.getElementById("all-year").checked = false;
+  document.getElementById(`species-name-input_${tableId}`).value = null;
+  document.getElementById(`all-year_${tableId}`).checked = false;
   for (i = 0; i < 12; i++) {
-    document.getElementById(`month${i+1}`).classList.remove("present");
+    document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
   }
 }
 
@@ -133,7 +133,7 @@ function addFeeder() {
 
   //Create feeder table
   let newTable = document.createElement("table");
-  newTable.id = `feeder-table-${newestTableNumber}`;
+  newTable.id = `feederTable${newestTableNumber}`;
   newTable.classList.add("feeder-table");
 
   //format columns of feeder table
@@ -259,7 +259,7 @@ function addFeeder() {
   newAddButton.id = `add-button-${newestTableNumber}`
   newAddButton.type = "button"
   newAddButton.innerHTML = "Add"
-  newAddButton.setAttribute("onclick", "addObservation()")
+  newAddButton.setAttribute("onclick", `addObservation(${newTable.id})`)
 
   //append Add button to submission table
   s13.appendChild(newAddButton)
