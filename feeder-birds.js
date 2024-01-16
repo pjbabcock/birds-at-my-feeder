@@ -9,7 +9,7 @@ function addObservation() {
   let previousSpecies = table.getElementsByClassName("species-name");
   let rowsChecked = 0
   let speciesCheck = false
-  for ( i = 0; i < previousSpecies.length; i++) {
+  for (let i = 0; i < previousSpecies.length; i++) {
     rowsChecked++;
     if (previousSpecies[i].innerHTML === speciesNameInput) {
       speciesCheck = true;
@@ -239,11 +239,17 @@ function addFeeder() {
   //place div in submission table
   s0.appendChild(nameFieldContainer)
 
-  //format month cells
-  s1.classList.add("month-cell")
-
   //append submission table to DOM
   document.getElementById("feeder-data-container").appendChild(newSubTable);
+
+  //format month cells
+  let newSubCells = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
+
+  for (let i=0; i < 12; i++) {
+    newSubCells[i].classList.add("month-cell");
+    newSubCells[i].id = `month${i+1}_${newestTableNumber}`;
+    newSubCells[i].onclick = togglePresent(newSubCells.id);
+  }
 }
 
 //Autocomplete array
