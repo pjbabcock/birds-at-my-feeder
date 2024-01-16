@@ -255,7 +255,7 @@ function addFeeder() {
   }
 
   //create Add button
-  let newAddButton = 
+  let newAddButton = document.createElement("button")
 }
 
 //Autocomplete array
