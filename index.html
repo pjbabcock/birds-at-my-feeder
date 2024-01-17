@@ -10,6 +10,7 @@
 <body>
   <h1>Birds at My Feeder</h1>
   <div id="feeder-data-container">
+    <h2>Backyard tube feeder:</h2>
     <table id="feederTable0" class="feeder-table">
     <colgroup>
       <col span="1" class="species-name-column">
@@ -67,8 +68,59 @@
     </tr>
     </table>
   </div>
-  <div id="add-feeder-button-container">
-    <button id="add-feeder-button" type="button" onclick="addFeeder()">+</button>
+  <div id="add-feeder-container">
+    <span id="metadata-form-container">
+      <label for="feeder-type_feederTable0" class="feeder-type-label">Feeder type:</label>
+      <select id="feeder-type_feederTable0" class="feeder-type">
+        <option>Please select an option</option>
+        <option>Tube</option>
+        <option>Hopper</option>
+        <option>Tray</option>
+        <option>Window</option>
+        <option>Hummingbird</option>
+        <option>Nyjer/thistle</option>
+        <option>Suet</option>
+        <option>Wreath</option>
+        <option>Oriole</option>
+      </select>
+      <label for="food-types_feederTable0" class="food-type-label">Food types:</label>
+      <select id="food-types_feederTable0" class="food-types" multiple>
+        <option>Hold ctrl to select multiple</option>
+        <option>Sunflower</option>
+        <option>Safflower</option>
+        <option>Nyjer/thistle</option>
+        <option>Corn</option>
+        <option>Peanuts</option>
+        <option>Milo/sorghum</option>
+        <option>Millet</option>
+        <option>Flax</option>
+        <option>Rapeseed</option>
+        <option>Canary seed</option>
+        <option>Suet</option>
+        <option>Nectar</option>
+        <options>Dried fruit</options>
+        <option>Fresh fruit</option>
+        <option>Jelly</option>
+        <option>Mealworm</option>
+      </select>
+      <br>
+      <label for="feeder-location_feederTable0" class="feeder-location-label">Feeder location:</label>
+      <select id="feeder-location_feederTable0" class="feeder-location">
+        <option>Please select an option</option>
+        <option>Backyard</option>
+        <option>Front yard</option>
+      </select>
+      <label for="feeder-distance_feederTable0" class="fooder-distance-label">Distance from house:</label>
+      <select id="feeder-distance_feederTable0" class="feeder-distance">
+        <option>Please select an option</option>
+        <option>Less than 3 feet</option>
+        <option>Between 3 and 30 feet</option>
+        <option>More than 30 feet</option>
+      </select>
+    </span>
+    <span id="add-feeder-button-container">
+      <button id="add-feeder-button" type="button" onclick="addFeeder()">Add feeder</button>
+    </span>
   </div>
 </body>
 <script>
