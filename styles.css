@@ -1,3 +1,8 @@
+body {
+  margin-right: 15%;
+  margin-left: 15%
+}
+
 h1 {
   text-align: center
 }
@@ -6,7 +11,7 @@ table {
   border: none;
   table-layout: fixed;
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto
 }
@@ -41,7 +46,6 @@ th {
 }
 
 .new-observation-submission {
-  width: 70%;
   margin-right: auto;
   margin-left: auto;
   border: none
@@ -103,4 +107,19 @@ tr>:nth-child(14) {
 
 .autocomplete-result:hover,.autocomplete-result[aria-selected=true]{
   background-color:rgba(0,0,0,.06)
+}
+
+#add-feeder-container {
+  margin-top: 1em
+}
+
+.food-types {
+  height: 17px;
+  z-index: 1;
+  position: absolute;
+  margin-left: 3px;
+}
+
+.food-types:focus {
+  height: 275px
 }
