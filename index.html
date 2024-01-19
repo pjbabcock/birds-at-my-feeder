@@ -11,9 +11,12 @@
   <div id="page-title-container">
     <h1>Birds at My Feeder</h1>
   </div>
-  <div id="feeder-selectors-container">
+  <span id="feeder-selectors-container">
     <button type="button" id="selector_feederTable0" class="feeder-selector" onclick="selectFeeder('feederTable0')">Feeder 1</button>
-  </div>
+  </span>
+  <span id="add-feeder-button-container">
+    <button id="add-feeder-button" type="button" onclick="addFeeder()">Add feeder</button>
+  </span>
   <div id="feeder-data-container">
     <div id="feeder-container_feederTable0" class="feeder-container">
       <h2>Feeder 1</h2>
@@ -127,9 +130,6 @@
       </tr>
       </table>
     </div>
-  </div>
-  <div id="add-feeder-button-container">
-    <button id="add-feeder-button" type="button" onclick="addFeeder()">Add feeder</button>
   </div>
 </body>
 <script>
