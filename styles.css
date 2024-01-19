@@ -36,6 +36,7 @@ th {
   background-color: rgba(82, 169, 96, 0.8);
   border-radius: 5px;
   border: 2px solid green;
+  margin-bottom: 1em
 }
 
 .species-name-column {
