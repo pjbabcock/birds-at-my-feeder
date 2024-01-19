@@ -1,10 +1,17 @@
 body {
   margin-right: 15%;
-  margin-left: 15%
+  margin-left: 15%;
+  color: rgba(218, 218, 218, 1);
+  background-color: rgba(10, 22, 12, 1)
 }
 
 h1 {
-  text-align: center
+  text-align: center;
+  margin: auto
+}
+
+h2 {
+  margin-bottom: 0em
 }
 
 table {
@@ -23,6 +30,12 @@ th, td {
 th {
   white-space: nowrap;
   overflow-x: hidden
+}
+
+#page-title-container {
+  background-color: rgba(82, 169, 96, 0.8);
+  border-radius: 5px;
+  border: 2px solid green;
 }
 
 .species-name-column {
@@ -85,12 +98,13 @@ tr>:nth-child(14) {
 }
 
 .present {
-  background-color: green
+  background-color: rgba(82, 169, 96, 0.8)
 }
 
 .autocomplete-result {
   cursor: default;
   padding: 12px 12px 12px 12px;
+  color: black
 }
 
 .autocomplete-result-list {
@@ -109,17 +123,29 @@ tr>:nth-child(14) {
   background-color:rgba(0,0,0,.06)
 }
 
-#add-feeder-container {
-  margin-top: 1em
+.details-button {
+  margin-bottom: 1em
+}
+
+.metadata-form-container {
+  margin-bottom: 1em;
+  padding: 1em 0.5em;
+  border: 2px solid green;
+  background-color: rgba(82, 169, 96, 0.8);
+  width: fit-content
 }
 
 .food-types {
   height: 17px;
   z-index: 1;
   position: absolute;
-  margin-left: 3px;
+  margin: 1px 3px
 }
 
 .food-types:focus {
   height: 275px
+}
+
+.hidden {
+  display: none
 }
