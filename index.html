@@ -37,7 +37,7 @@
           <option>Oriole</option>
         </select>
         <br>
-        <label for="food-types_feederTable0" class="food-type-label">Food types:</label>
+        <label for="food-types_feederTable0" class="food-types-label">Food types:</label>
         <select id="food-types_feederTable0" class="food-types" multiple>
           <option>Hold ctrl to select multiple</option>
           <option>Sunflower</option>
@@ -65,7 +65,7 @@
           <option>Front yard</option>
         </select>
         <br>
-        <label for="feeder-distance_feederTable0" class="fooder-distance-label">Distance from house:</label>
+        <label for="feeder-distance_feederTable0" class="feeder-distance-label">Distance from house:</label>
         <select id="feeder-distance_feederTable0" class="feeder-distance">
           <option>Please select an option</option>
           <option>Less than 3 feet</option>
@@ -129,6 +129,9 @@
         </td>
       </tr>
       </table>
+      <div id="delete-button-container_feederTable0">
+        <button type="button" id="delete-button_feederTable0" class="delete-button" onclick="deleteFeeder('feederTable0')">Delete feeder</button>
+      </div>
     </div>
   </div>
 </body>
