@@ -39,6 +39,10 @@ th {
   margin-bottom: 1em
 }
 
+.feeder-selector {
+  margin-right: 1em
+}
+
 .species-name-column {
   box-sizing: border-box;
   width: 28%;
