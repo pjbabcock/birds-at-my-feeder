@@ -133,6 +133,17 @@ function togglePresent(boxId) {
 function addFeeder() {
   newestTableNumber++
 
+  //Create feeder container and append to DOM
+  let newDiv = document.createElement("div");
+  newDiv.id = `feeder-container_feederTable${newestTableNumber}`;
+  newDiv.classList.add("feeder-container");
+  document.getElementById("feeder-data-container").appendChild(newDiv);
+
+  //create feeder title and append to DOM
+  let feederTitle = document.createElement("h2")
+  feederTitle.innerHTML = `Feeder ${newestTableNumber+1}`
+  newDiv.appendChild(feederTitle)
+
   //Create feeder table
   let newTable = document.createElement("table");
   newTable.id = `feederTable${newestTableNumber}`;
@@ -185,7 +196,7 @@ function addFeeder() {
   c12.outerHTML = "<th>Dec</th>";
 
   //append feeder table to DOM
-  document.getElementById("feeder-data-container").appendChild(newTable);
+  newDiv.appendChild(newTable);
 
   //create submission table
   let newSubTable = document.createElement("table");
@@ -245,7 +256,7 @@ function addFeeder() {
   s0.appendChild(nameFieldContainer)
 
   //append submission table to DOM
-  document.getElementById("feeder-data-container").appendChild(newSubTable);
+  newDiv.appendChild(newSubTable);
 
   //format month cells
   let newSubCells = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
@@ -297,18 +308,37 @@ function addFeeder() {
 
   //apply autocomplete to all inputs
   const elements = document.querySelectorAll(".autocomplete");
-    const search = input => {
-        if (input.length < 1) { return [] }
-        return birdSpecies.filter(bird => {
-          return bird.toLowerCase().includes(input.toLowerCase())
-        })
-      }
-    elements.forEach(el => {
-      new Autocomplete(el, {
-        search,
-        autoselect: true
-      });
-    })
+  const search = input => {
+      if (input.length < 1) { return [] }
+      return birdSpecies.filter(bird => {
+        return bird.toLowerCase().includes(input.toLowerCase())
+      })
+    }
+  elements.forEach(el => {
+    new Autocomplete(el, {
+      search,
+      autoselect: true
+    });
+  })
+
+  //create feeder-selector button
+  let newSelector = document.createElement("button");
+  newSelector.type = "button";
+  newSelector.id = `selector_feederTable${newestTableNumber}`;
+  newSelector.classList.add("feeder-selector");
+  newSelector.innerHTML = `Feeder ${newestTableNumber+1}`;
+  newSelector.setAttribute("onclick", `selectFeeder('${newTable.id}')`);
+  document.getElementById("feeder-selectors-container").appendChild(newSelector);
+
+  //show new table only
+  let allTables = Array.from(document.getElementsByClassName("feeder-container"));
+  allTables.forEach(function (table) {
+    table.classList.add("hidden")
+    console.log(`I hid ${table.id}`);
+  });
+  document.getElementById(`feeder-container_${newTable.id}`).classList.remove("hidden");
+  console.log(`I showed feeder-container_${newTable.id}`);
+
 }
 
 //Show feeder details:
@@ -322,7 +352,20 @@ function showDetails(tableID) {
 function hideDetails(tableID) {
   document.getElementById(`metadata-form-container_${tableID}`).classList.add("hidden");
   document.getElementById(`details-button_${tableID}`).classList.remove("hidden");
-  document.getElementById(`hide-details-button_${tableID}`).classList.add("hidden")
+  document.getElementById(`hide-details-button_${tableID}`).classList.add("hidden");
+}
+
+//Select feeder table:
+function selectFeeder(tableID) {
+  //Hide all tables
+  let allTables = Array.from(document.getElementsByClassName("feeder-container"));
+  allTables.forEach(function (table) {
+    table.classList.add("hidden")
+    console.log(`I hid ${table.id}`);
+  });
+  //Show selected table
+  document.getElementById(`feeder-container_${tableID}`).classList.remove("hidden");
+  console.log(`I showed feeder-container_${tableID}`);
 }
 
 //Autocomplete array
