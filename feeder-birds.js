@@ -311,5 +311,19 @@ function addFeeder() {
     })
 }
 
+//Show feeder details:
+function showDetails(tableID) {
+  document.getElementById(`metadata-form-container_${tableID}`).classList.remove("hidden");
+  document.getElementById(`details-button_${tableID}`).classList.add("hidden");
+  document.getElementById(`hide-details-button_${tableID}`).classList.remove("hidden")
+}
+
+//Hide feeder details:
+function hideDetails(tableID) {
+  document.getElementById(`metadata-form-container_${tableID}`).classList.add("hidden");
+  document.getElementById(`details-button_${tableID}`).classList.remove("hidden");
+  document.getElementById(`hide-details-button_${tableID}`).classList.add("hidden")
+}
+
 //Autocomplete array
 let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee", "Yellow-bellied Sapsucker", "Yellow-throated Nightingale-Thrush"]
