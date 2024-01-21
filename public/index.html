@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Birds at My Feeder</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <script type="text/javascript" src="/js/feeder-birds.js"></script>
   <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
-  <script type="text/javascript" src="feeder-birds.js"></script>
+  <script type="module" src="/js/configure-autocomplete.js"></script>
 </head>
 
 <body>
@@ -66,17 +67,4 @@
     </tr>
   </table>
 </body>
-<script>
-  (function () {
-    new Autocomplete("#species-name-div", {
-      search: input => {
-        if (input.length < 1) { return [] }
-        return birdSpecies.filter(bird => {
-          return bird.toLowerCase().includes(input.toLowerCase())
-        })
-      },
-      autoselect: true
-    });
-  }) ();
-</script>
 </html>

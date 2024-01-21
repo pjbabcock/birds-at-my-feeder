@@ -122,6 +122,3 @@ function togglePresent(boxId) {
     boxId.classList.add("present");
   }
 }
-
-//Autocomplete array
-let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee", "Yellow-bellied Sapsucker", "Yellow-throated Nightingale-Thrush"]

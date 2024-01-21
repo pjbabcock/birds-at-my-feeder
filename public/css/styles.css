@@ -98,9 +98,11 @@ tr>:nth-child(14) {
   background: #fff;
   list-style: none;
   text-align: left;
-  box-shadow: 0 2px 2px rgba(0,0,0,.16)
+  box-shadow: 0 2px 2px rgba(0,0,0,.16);
+  overflow: auto;
 }
 
 .autocomplete-result:hover,.autocomplete-result[aria-selected=true]{
   background-color:rgba(0,0,0,.06)
 }
+
