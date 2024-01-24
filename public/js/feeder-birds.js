@@ -1,5 +1,11 @@
+import {configureAutoComplete} from "./configure-autocomplete.js";
+import { loadBirdNames } from "./load-bird-names.js";
+
 //global variables
-let newestTableNumber = 0
+let newestTableNumber = 0;
+//load bird names and configure first autocomplete
+let birdNames = await loadBirdNames();
+configureAutoComplete(birdNames);
 
 //add new bird to feeder table
 function addObservation(tableId) {
@@ -23,7 +29,7 @@ function addObservation(tableId) {
 
   //if new species:
   if (speciesCheck === false && speciesNameInput) {
-  
+
     //create row
     let row = table.insertRow(-1);
 
@@ -52,25 +58,25 @@ function addObservation(tableId) {
     deleteButton.classList.add("delete-button");
     deleteButton.type = "button";
     deleteButton.innerHTML = "Delete";
-    deleteButton.onclick = function() {
+    deleteButton.onclick = function () {
       this.parentElement.parentElement.remove();
     }
     c13.appendChild(deleteButton);
     c13.classList.add("delete-button-cell");
-  
+
     //style new month cells
     let newCells = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12];
-  
+
     for (let i = 0; i < 12; i++) {
       newCells[i].classList.add("month-cell")
-      if (document.getElementById(`month${i+1}_${tableId}`).classList.contains("present")) {
+      if (document.getElementById(`month${i + 1}_${tableId}`).classList.contains("present")) {
         newCells[i].classList.add("present");
       }
     }
-    
+
     //add on-click behavior to cells
-    for (let i = 0; i <12; i++) {
-      newCells[i].onclick = function() {
+    for (let i = 0; i < 12; i++) {
+      newCells[i].onclick = function () {
         if (this.classList.contains("present")) {
           this.classList.remove("present");
         }
@@ -86,8 +92,8 @@ function addObservation(tableId) {
 
     //fill new months
     for (let i = 0; i < 12; i++) {
-      if (document.getElementById(`month${i+1}_${tableId}`).classList.contains("present")) {
-        table.rows[rowsChecked].cells[i+1].classList.add("present");
+      if (document.getElementById(`month${i + 1}_${tableId}`).classList.contains("present")) {
+        table.rows[rowsChecked].cells[i + 1].classList.add("present");
       }
     }
   }
@@ -96,28 +102,32 @@ function addObservation(tableId) {
   if (speciesNameInput) {
     document.getElementById(`species-name-input_${tableId}`).value = null;
     document.getElementById(`all-year_${tableId}`).checked = false;
-    for (i = 0; i < 12; i++) {
-      document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
+    for (let i = 0; i < 12; i++) {
+      document.getElementById(`month${i + 1}_${tableId}`).classList.remove("present");
     }
   }
 }
+
+window.addObservation = addObservation;
 
 //"All-year" checkbox behavior:
 function checkAll(tableId) {
   //check all boxes
   if (document.getElementById(`all-year_${tableId}`).checked) {
     for (let i = 0; i < 12; i++) {
-      document.getElementById(`month${i+1}_${tableId}`).classList.add("present");
+      document.getElementById(`month${i + 1}_${tableId}`).classList.add("present");
     }
   }
 
   //uncheck all boxes
   else {
     for (let i = 0; i < 12; i++) {
-      document.getElementById(`month${i+1}_${tableId}`).classList.remove("present");
+      document.getElementById(`month${i + 1}_${tableId}`).classList.remove("present");
     }
   }
 }
+
+window.checkAll = checkAll;
 
 //Toggle month cells in input row
 function togglePresent(boxId) {
@@ -128,6 +138,8 @@ function togglePresent(boxId) {
     boxId.classList.add("present");
   }
 }
+
+window.togglePresent = togglePresent;
 
 //Add a new feeder:
 function addFeeder() {
@@ -141,7 +153,7 @@ function addFeeder() {
 
   //create feeder title and append to DOM
   let feederTitle = document.createElement("h2");
-  feederTitle.innerHTML = `Feeder ${newestTableNumber+1}`;
+  feederTitle.innerHTML = `Feeder ${newestTableNumber + 1}`;
   newDiv.appendChild(feederTitle);
 
   //create details button and append to DOM
@@ -432,9 +444,9 @@ function addFeeder() {
   //format month cells
   let newSubCells = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12]
 
-  for (let i=0; i < 12; i++) {
+  for (let i = 0; i < 12; i++) {
     newSubCells[i].classList.add("month-cell");
-    newSubCells[i].id = `month${i+1}_${newTable.id}`;
+    newSubCells[i].id = `month${i + 1}_${newTable.id}`;
     newSubCells[i].setAttribute("onclick", `togglePresent(${newSubCells[i].id})`);
   }
 
@@ -448,8 +460,8 @@ function addFeeder() {
 
   //create cells for checkbox and append to DOM
   let allYearRow = newSubTable.insertRow(-1);
-  y0 = allYearRow.insertCell(0);
-  y1 = allYearRow.insertCell(1);
+  let y0 = allYearRow.insertCell(0);
+  let y1 = allYearRow.insertCell(1);
   y0.classList.add("blank-cell");
   y1.classList.add("all-year-cell");
 
@@ -476,27 +488,14 @@ function addFeeder() {
   deleteButton.setAttribute("onclick", `deleteFeeder('${newTable.id}')`);
   newDiv.appendChild(deleteButton);
 
-  //apply autocomplete to all inputs
-  const elements = document.querySelectorAll(".autocomplete");
-  const search = input => {
-      if (input.length < 1) { return [] }
-      return birdSpecies.filter(bird => {
-        return bird.toLowerCase().includes(input.toLowerCase())
-      })
-    }
-  elements.forEach(el => {
-    new Autocomplete(el, {
-      search,
-      autoselect: true
-    });
-  })
+  configureAutoComplete(birdNames);
 
   //create feeder-selector button
   let newSelector = document.createElement("button");
   newSelector.type = "button";
   newSelector.id = `selector_feederTable${newestTableNumber}`;
   newSelector.classList.add("feeder-selector");
-  newSelector.innerHTML = `Feeder ${newestTableNumber+1}`;
+  newSelector.innerHTML = `Feeder ${newestTableNumber + 1}`;
   newSelector.setAttribute("onclick", `selectFeeder('${newTable.id}')`);
   document.getElementById("feeder-selectors-container").appendChild(newSelector);
 
@@ -511,6 +510,8 @@ function addFeeder() {
 
 }
 
+window.addFeeder = addFeeder;
+
 //Show feeder details:
 function showDetails(tableID) {
   document.getElementById(`metadata-form-container_${tableID}`).classList.remove("hidden");
@@ -518,12 +519,15 @@ function showDetails(tableID) {
   document.getElementById(`hide-details-button_${tableID}`).classList.remove("hidden")
 }
 
+window.showDetails= showDetails;
+
 //Hide feeder details:
 function hideDetails(tableID) {
   document.getElementById(`metadata-form-container_${tableID}`).classList.add("hidden");
   document.getElementById(`details-button_${tableID}`).classList.remove("hidden");
   document.getElementById(`hide-details-button_${tableID}`).classList.add("hidden");
 }
+window.hideDetails = hideDetails;
 
 //Select feeder table:
 function selectFeeder(tableID) {
@@ -537,6 +541,8 @@ function selectFeeder(tableID) {
   document.getElementById(`feeder-container_${tableID}`).classList.remove("hidden");
   console.log(`I showed feeder-container_${tableID}`);
 }
+window.selectFeeder = selectFeeder;
+
 
 //Delete feeder table:
 function deleteFeeder(tableID) {
@@ -546,5 +552,6 @@ function deleteFeeder(tableID) {
   }
 }
 
+window.deleteFeeder = deleteFeeder;
 //Autocomplete array
-let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee", "Yellow-bellied Sapsucker", "Yellow-throated Nightingale-Thrush"]
+// let birdSpecies = ["House Finch", "House Wren", "Dark-eyed Junco", "Downy Woodpecker", "Black-capped Chickadee", "Yellow-bellied Sapsucker", "Yellow-throated Nightingale-Thrush"]
