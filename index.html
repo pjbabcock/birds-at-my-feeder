@@ -8,75 +8,148 @@
 </head>
 
 <body>
-  <h1>Birds at My Feeder</h1>
-  <table id="observation-table" class="observation-table">
-    <colgroup>
-      <col span="1" class="species-name-column">
-      <col span="12" class="months-column">
-    </colgroup>
-    <tr>
-      <th>Species Name</th>
-      <th>Jan</th>
-      <th>Feb</th>
-      <th>Mar</th>
-      <th>Apr</th>
-      <th>May</th>
-      <th>Jun</th>
-      <th>Jul</th>
-      <th>Aug</th>
-      <th>Sep</th>
-      <th>Oct</th>
-      <th>Nov</th>
-      <th>Dec</th>
-      <th></th>
-    </tr>
-  </table>
-  <table id="new-observation-submission" class="new-observation-submission">
-    <colgroup>
-      <col span="1" class="species-name-column">
-      <col span="12" class="months-column">
-    </colgroup>
-    <tr>
-      <td class="species-name-cell">
-        <div id="species-name-div" class="autocomplete">
-          <input type="text" id="species-name-input" class="autcomplete-input" placeholder="Search for a bird"/>
-          <ul class="autocomplete-result-list"></ul>
-        </div>
-      </td>
-      <td id="month1" class="month-cell" onclick="togglePresent(month1)"></td>
-      <td id="month2" class="month-cell" onclick="togglePresent(month2)"></td>
-      <td id="month3" class="month-cell" onclick="togglePresent(month3)"></td>
-      <td id="month4" class="month-cell" onclick="togglePresent(month4)"></td>
-      <td id="month5" class="month-cell" onclick="togglePresent(month5)"></td>
-      <td id="month6" class="month-cell" onclick="togglePresent(month6)"></td>
-      <td id="month7" class="month-cell" onclick="togglePresent(month7)"></td>
-      <td id="month8" class="month-cell" onclick="togglePresent(month8)"></td>
-      <td id="month9" class="month-cell" onclick="togglePresent(month9)"></td>
-      <td id="month10" class="month-cell" onclick="togglePresent(month10)"></td>
-      <td id="month11" class="month-cell" onclick="togglePresent(month11)"></td>
-      <td id="month12" class="month-cell" onclick="togglePresent(month12)"></td>
-      <td><button id="add-button" type="button" onclick="addObservation()">Add</button></td>
-    </tr>
-    <tr>
-      <td id="blank-cell"></td>
-      <td id="all-year-cell">
-        <input type="checkbox" id="all-year" onclick="checkAll()">
-        <label for="check-all" id="all-year-label">All year</label>
-      </td>
-    </tr>
-  </table>
+  <div id="page-title-container">
+    <h1>Birds at My Feeder</h1>
+  </div>
+  <span id="feeder-selectors-container">
+    <button type="button" id="selector_feederTable0" class="feeder-selector" onclick="selectFeeder('feederTable0')">Feeder 1</button>
+  </span>
+  <span id="add-feeder-button-container">
+    <button id="add-feeder-button" type="button" onclick="addFeeder()">Add feeder</button>
+  </span>
+  <div id="feeder-data-container">
+    <div id="feeder-container_feederTable0" class="feeder-container">
+      <h2>Feeder 1</h2>
+      <button type="button" id="details-button_feederTable0" class="details-button" onclick="showDetails('feederTable0')">Details</button>
+      <button type="button" id="hide-details-button_feederTable0" class="hide-details-button hidden" onclick="hideDetails('feederTable0')">Hide</button>
+      <div id="metadata-form-container_feederTable0" class="metadata-form-container hidden">
+        <label for="feeder-type_feederTable0" class="feeder-type-label">Feeder type:</label>
+        <select id="feeder-type_feederTable0" class="feeder-type">
+          <option>Please select an option</option>
+          <option>Tube</option>
+          <option>Hopper</option>
+          <option>Tray</option>
+          <option>Window</option>
+          <option>Hummingbird</option>
+          <option>Nyjer/thistle</option>
+          <option>Suet</option>
+          <option>Wreath</option>
+          <option>Oriole</option>
+        </select>
+        <br>
+        <label for="food-types_feederTable0" class="food-types-label">Food types:</label>
+        <select id="food-types_feederTable0" class="food-types" multiple>
+          <option>Hold ctrl to select multiple</option>
+          <option>Sunflower</option>
+          <option>Safflower</option>
+          <option>Nyjer/thistle</option>
+          <option>Corn</option>
+          <option>Peanuts</option>
+          <option>Milo/sorghum</option>
+          <option>Millet</option>
+          <option>Flax</option>
+          <option>Rapeseed</option>
+          <option>Canary seed</option>
+          <option>Suet</option>
+          <option>Nectar</option>
+          <options>Dried fruit</options>
+          <option>Fresh fruit</option>
+          <option>Jelly</option>
+          <option>Mealworm</option>
+        </select>
+        <br>
+        <label for="feeder-location_feederTable0" class="feeder-location-label">Feeder location:</label>
+        <select id="feeder-location_feederTable0" class="feeder-location">
+          <option>Please select an option</option>
+          <option>Backyard</option>
+          <option>Front yard</option>
+        </select>
+        <br>
+        <label for="feeder-distance_feederTable0" class="feeder-distance-label">Distance from house:</label>
+        <select id="feeder-distance_feederTable0" class="feeder-distance">
+          <option>Please select an option</option>
+          <option>Less than 3 feet</option>
+          <option>Between 3 and 30 feet</option>
+          <option>More than 30 feet</option>
+        </select>
+      </div>
+      <table id="feederTable0" class="feeder-table">
+      <colgroup>
+        <col span="1" class="species-name-column">
+        <col span="12" class="months-column">
+      </colgroup>
+      <tr>
+        <th>Species Name</th>
+        <th>Jan</th>
+        <th>Feb</th>
+        <th>Mar</th>
+        <th>Apr</th>
+        <th>May</th>
+        <th>Jun</th>
+        <th>Jul</th>
+        <th>Aug</th>
+        <th>Sep</th>
+        <th>Oct</th>
+        <th>Nov</th>
+        <th>Dec</th>
+        <th></th>
+      </tr>
+      </table>
+      <table id="new-observation-submission-0" class="new-observation-submission">
+      <colgroup>
+        <col span="1" class="species-name-column">
+        <col span="12" class="months-column">
+      </colgroup>
+      <tr>
+        <td class="species-name-cell">
+          <div id="species-name-div" class="autocomplete">
+            <input type="text" id="species-name-input_feederTable0" class="autocomplete-input" placeholder="Search for a bird"/>
+            <ul class="autocomplete-result-list"></ul>
+          </div>
+        </td>
+        <td id="month1_feederTable0" class="month-cell" onclick="togglePresent(month1_feederTable0)"></td>
+        <td id="month2_feederTable0" class="month-cell" onclick="togglePresent(month2_feederTable0)"></td>
+        <td id="month3_feederTable0" class="month-cell" onclick="togglePresent(month3_feederTable0)"></td>
+        <td id="month4_feederTable0" class="month-cell" onclick="togglePresent(month4_feederTable0)"></td>
+        <td id="month5_feederTable0" class="month-cell" onclick="togglePresent(month5_feederTable0)"></td>
+        <td id="month6_feederTable0" class="month-cell" onclick="togglePresent(month6_feederTable0)"></td>
+        <td id="month7_feederTable0" class="month-cell" onclick="togglePresent(month7_feederTable0)"></td>
+        <td id="month8_feederTable0" class="month-cell" onclick="togglePresent(month8_feederTable0)"></td>
+        <td id="month9_feederTable0" class="month-cell" onclick="togglePresent(month9_feederTable0)"></td>
+        <td id="month10_feederTable0" class="month-cell" onclick="togglePresent(month10_feederTable0)"></td>
+        <td id="month11_feederTable0" class="month-cell" onclick="togglePresent(month11_feederTable0)"></td>
+        <td id="month12_feederTable0" class="month-cell" onclick="togglePresent(month12_feederTable0)"></td>
+        <td><button id="add-button-0" type="button" class="add-button" onclick="addObservation('feederTable0')">Add</button></td>
+      </tr>
+      <tr>
+        <td class="blank-cell"></td>
+        <td class="all-year-cell">
+          <input type="checkbox" id="all-year_feederTable0" class="all-year" onclick="checkAll('feederTable0')">
+          <label for="all-year_feederTable0" id="all-year-label_feederTable0" class="all-year-label">All year</label>
+        </td>
+      </tr>
+      </table>
+      <div id="delete-button-container_feederTable0">
+        <button type="button" id="delete-button_feederTable0" class="delete-button" onclick="deleteFeeder('feederTable0')">Delete feeder</button>
+      </div>
+    </div>
+  </div>
 </body>
 <script>
   (function () {
-    new Autocomplete("#species-name-div", {
-      search: input => {
+    const elements = document.querySelectorAll(".autocomplete");
+    const search = input => {
         if (input.length < 1) { return [] }
         return birdSpecies.filter(bird => {
           return bird.toLowerCase().includes(input.toLowerCase())
         })
-      },
-      autoselect: true
-    });
+      }
+    elements.forEach(el => {
+      new Autocomplete(el, {
+        search,
+        autoselect: true
+      });
+    })
   }) ();
 </script>
 </html>
