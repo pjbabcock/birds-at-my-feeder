@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 
 //Endpoint to load the names of the birds. 
 app.get('/birdnames', (req, res) => {
-    exec('node scripts/load-bird-names', (error, stdout) => {
+    exec('node scripts/read-bird-names', (error, stdout) => {
         if (error) {
             console.error(`error: ${error.message}`);
             res.status(500);

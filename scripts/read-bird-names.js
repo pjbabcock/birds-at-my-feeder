@@ -16,6 +16,7 @@ inputStream
 		rowCount ++;
 	})
 	.on('end', function () {
+		console.log(JSON.stringify(birdNames));
 		return birdNames;
 	});
 
