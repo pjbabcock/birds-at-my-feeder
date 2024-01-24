@@ -1,6 +1,6 @@
 {
   "name": "birds-at-my-feeder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "a site to track which birds visit your feeder during each month",
   "main": "app.js",
   "scripts": {
